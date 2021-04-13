@@ -21,6 +21,6 @@ router.post('/api/workouts', (req, res) => {
         })
 });
 
-//UPDATE - add an exercise to a workout
+//UPDATE a workout
 
 
