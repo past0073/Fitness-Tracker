@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const workoutSchema = new Schema({
+const WorkoutSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
@@ -13,7 +13,7 @@ const workoutSchema = new Schema({
         required: "Please enter a workout type"
     },
     name: {
-        tyoe: String,
+        type: String,
         trim: true,
         required: "Please enter a workout name"
     },
@@ -39,20 +39,20 @@ const workoutSchema = new Schema({
     }
 });
 
-db.workout.aggregate([
-  {
-      $addFields: {
-          totalSets: { $sum: "$sets" },
-          totalReps: { $sum: "$reps" }
-      },
-      $addFields: {
-          totalWeight: { $multiply: ["$weight", "$totalSets", "$totalReps"] }
-      },
-      $addFields: {
-        totalDistance: { $sum: "$distance"}
-      }
-  }
- ])
+// db.workout.aggregate([
+//   {
+//       $addFields: {
+//           totalSets: { $sum: "$sets" },
+//           totalReps: { $sum: "$reps" }
+//       },
+//       $addFields: {
+//           totalWeight: { $multiply: ["$weight", "$totalSets", "$totalReps"] }
+//       },
+//       $addFields: {
+//         totalDistance: { $sum: "$distance"}
+//       }
+//   }
+//  ])
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
 

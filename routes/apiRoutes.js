@@ -23,4 +23,4 @@ router.post('/api/workouts', (req, res) => {
 
 //UPDATE a workout
 
-
+module.exports = router;
