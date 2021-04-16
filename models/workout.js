@@ -7,6 +7,7 @@ const WorkoutSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    exercises: [{
     type: {
         type: String,
         trim: true,
@@ -37,6 +38,7 @@ const WorkoutSchema = new Schema({
         type: Number,
         trim: true
     }
+    }]
 });
 
 // db.workout.aggregate([
