@@ -42,6 +42,19 @@ router.put('/api/workouts/:id', (req, res) => {
     }).catch((err) => {
         res.json(err);
     })
-})
+});
+
+//READ data on stats page
+router.get('/api/workouts/range', (req, res) => {
+    Workout.aggregate([
+        {
+            $addFields: {
+                totalDuration: { $sum: "$exercises.duration" }
+            }
+        }
+    ]).sort({ day: -1 }).limit(7).then(workout => {
+        res.json(workout);
+    })
+});
 
 module.exports = router;
