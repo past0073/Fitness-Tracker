@@ -1,12 +1,15 @@
 const router = require("express").Router();
-const { db } = require("../models/workout.js");
 const Workout = require("../models/workout.js");
 
 //Using the /api endpoint
 
 //READ all workouts
-router.get('/workouts', (req, res) => {
-    Workout.find({})
+router.get('/api/workouts', (req, res) => {
+    Workout.aggregate([{
+        $addFields: {
+            totalDuration: { $sum: "$exercises.duration" }
+        }
+    }])
         .then(workouts => {
             res.json(workouts);
         }).catch (err => {
@@ -15,7 +18,7 @@ router.get('/workouts', (req, res) => {
 });
 
 //CREATE new workout
-router.post('/workouts', (req, res) => {
+router.post('/api/workouts', (req, res) => {
     Workout.create({})
         .then(workout => {
             res.json(workout);
@@ -25,7 +28,7 @@ router.post('/workouts', (req, res) => {
 });
 
 //UPDATE a workout by adding an exercise
-router.put('/workouts/:id', (req, res) => {
+router.put('/api/workouts/:id', (req, res) => {
     db.Workout.findByIdAndUpdate(
         req.params.id,
         {
