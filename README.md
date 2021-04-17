@@ -5,16 +5,25 @@ An app to track and update your regular workout routine
 
 ## Descrption
 
+The fitness tracker helps manage workouts by allowing the user to create new, or update existing workouts. Built in functionality also displays the user's data in a colorful, easy to understand, visual located on their dashboard.
 
-
-Link to deployed application: https://amys-fitness-tracker.herokuapp.com/
+Try it out here: https://amys-fitness-tracker.herokuapp.com/
 
 ## Table of Contents 
+* [Technologies](#technologies)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Testing](#testing)
 * [License](#license)
 * [Questions](#questions)
+
+## Technologies
+Technologies used in this application include:
+* MongoDB
+* Mongoose
+* Express
+* Atlas
+* Heroku
 ## Installation
 ```
 npm install
@@ -33,3 +42,6 @@ If you have any questions or run into any issues with this application, please f
 
 ## Screenshots
 
+![image](https://user-images.githubusercontent.com/74335621/115117496-7ac1cf80-9f64-11eb-9324-526efae4e09f.png)
+
+![image](https://user-images.githubusercontent.com/74335621/115117512-8f9e6300-9f64-11eb-81e9-4dc49b3c86e2.png)
